@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Dimensions } from 'react-native';
+import { Dimensions, Text } from 'react-native';
 import { StyleSheet, View } from 'react-native';
 import { GestureHandlerRootView, PanGestureHandler, PinchGestureHandler, TapGestureHandler } from 'react-native-gesture-handler';
 import Animated, { interpolateColor, runOnJS, useAnimatedGestureHandler, useAnimatedStyle, useSharedValue, withSpring, withTiming } from 'react-native-reanimated';
@@ -76,12 +76,15 @@ export default function App() {
   return (
     <GestureHandlerRootView style={styles.container}>
       <View style={[styles.container, { justifyContent: 'space-evenly' }]}>
+        <Text>Pan Gesture(Move it Around)</Text>
         <PanGestureHandler onGestureEvent={onGesturEvent}>
           <Animated.View style={[styles.circle, rCircle,]} />
         </PanGestureHandler>
+        <Text>Pinch Gesture(Zoom)</Text>
         <PinchGestureHandler onGestureEvent={Pinch}>
           <Animated.View style={[styles.circle, pCircle, { width: WIDTH * .5, height: WIDTH * .5, borderRadius: WIDTH * .5 }]} />
         </PinchGestureHandler>
+        <Text>Tap Gesture(Double Tap)</Text>
         <TapGestureHandler numberOfTaps={2} onGestureEvent={Tap}>
           <Animated.View style={[styles.circle, c]} />
         </TapGestureHandler>
