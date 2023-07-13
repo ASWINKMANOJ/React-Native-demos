@@ -50,7 +50,6 @@ export default function App() {
     onActive: () => {
       runOnJS(setFirst)(!first)
       r.value = first ? withTiming(1) : withTiming(0);
-      console.log(first);
     }
   })
 
